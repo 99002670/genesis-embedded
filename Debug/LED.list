@@ -491,16 +491,16 @@ void GPIO_ToggleOutputPin(GPIO_REGDEF_t *pGPIOx, uint8_t PinNumber)
  80004b6:	4770      	bx	lr
 
 080004b8 <delay>:
- */
-#include "STM32F407xx.h"
 #include "STM32F407xx_gpio_driver.h"
+
+void delay(void);
 
 void delay(void)
 {
  80004b8:	b480      	push	{r7}
  80004ba:	b083      	sub	sp, #12
  80004bc:	af00      	add	r7, sp, #0
-	for(uint32_t i = 0; i <= 50000; i += 1);
+	for(uint32_t i = 0; i <= 0xFFFF; i += 1);
  80004be:	2300      	movs	r3, #0
  80004c0:	607b      	str	r3, [r7, #4]
  80004c2:	e002      	b.n	80004ca <delay+0x12>
@@ -508,15 +508,15 @@ void delay(void)
  80004c6:	3301      	adds	r3, #1
  80004c8:	607b      	str	r3, [r7, #4]
  80004ca:	687b      	ldr	r3, [r7, #4]
- 80004cc:	f24c 3250 	movw	r2, #50000	; 0xc350
- 80004d0:	4293      	cmp	r3, r2
- 80004d2:	d9f7      	bls.n	80004c4 <delay+0xc>
+ 80004cc:	f5b3 3f80 	cmp.w	r3, #65536	; 0x10000
+ 80004d0:	d3f8      	bcc.n	80004c4 <delay+0xc>
 }
- 80004d4:	bf00      	nop
- 80004d6:	370c      	adds	r7, #12
- 80004d8:	46bd      	mov	sp, r7
- 80004da:	f85d 7b04 	ldr.w	r7, [sp], #4
- 80004de:	4770      	bx	lr
+ 80004d2:	bf00      	nop
+ 80004d4:	370c      	adds	r7, #12
+ 80004d6:	46bd      	mov	sp, r7
+ 80004d8:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80004dc:	4770      	bx	lr
+	...
 
 080004e0 <main>:
 
@@ -556,13 +556,13 @@ int main(void)
 
 	while(1)
 	{
-		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
- 800050e:	210d      	movs	r1, #13
+		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
+ 800050e:	210c      	movs	r1, #12
  8000510:	4802      	ldr	r0, [pc, #8]	; (800051c <main+0x3c>)
  8000512:	f7ff ffbc 	bl	800048e <GPIO_ToggleOutputPin>
 		delay();
  8000516:	f7ff ffcf 	bl	80004b8 <delay>
-		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
  800051a:	e7f8      	b.n	800050e <main+0x2e>
  800051c:	40020c00 	.word	0x40020c00
 

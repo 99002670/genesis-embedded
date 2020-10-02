@@ -357,8 +357,9 @@ LOAD d:/stm32cubeide_1.4.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externa
  .text.GPIO_ToggleOutputPin
                 0x000000000800048e       0x2a Driver/Src/STM32F407xx_gpio_driver.o
                 0x000000000800048e                GPIO_ToggleOutputPin
- .text.delay    0x00000000080004b8       0x28 Src/001_LedToggle.o
+ .text.delay    0x00000000080004b8       0x26 Src/001_LedToggle.o
                 0x00000000080004b8                delay
+ *fill*         0x00000000080004de        0x2 
  .text.main     0x00000000080004e0       0x40 Src/001_LedToggle.o
                 0x00000000080004e0                main
  .text.Reset_Handler

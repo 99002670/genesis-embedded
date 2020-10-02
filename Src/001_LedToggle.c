@@ -7,9 +7,11 @@
 #include "STM32F407xx.h"
 #include "STM32F407xx_gpio_driver.h"
 
+void delay(void);
+
 void delay(void)
 {
-	for(uint32_t i = 0; i <= 50000; i += 1);
+	for(uint32_t i = 0; i <= 0xFFFF; i += 1);
 }
 
 int main(void)
@@ -27,7 +29,7 @@ int main(void)
 
 	while(1)
 	{
-		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_13);
+		GPIO_ToggleOutputPin(GPIOD, GPIO_PIN_NO_12);
 		delay();
 	}
 
