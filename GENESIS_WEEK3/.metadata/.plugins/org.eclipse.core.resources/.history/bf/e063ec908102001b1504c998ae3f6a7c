@@ -1,0 +1,57 @@
+/*
+ * STM32F407xx.h
+ *
+ *  Created on: Sep 29, 2020
+ *      Author: Training
+ */
+
+#include <stdint.h>
+
+#ifndef INC_STM32F407XX_H_
+#define INC_STM32F407XX_H_
+
+/* BASE ADDRESS OF MEMORY */
+#define FLASH_BASEADDR	0x08000000UL 				//base address of the flash memory
+#define SRAM1_BASEADDR	0x20000000UL				//base address of sram1
+#define SRAM2_BASEADDR  0x2001C000UL				//base address of sram2
+#define SRAM_BASEADDR	SRAM1_BASEADDR				//SRAM or primary ram is sram1 itself
+#define ROM_BASEADDR	0x1FFF0000UL				//base address of rom
+
+/* BASE ADDRESS OF THE BUSES */
+#define APB1_BASEADDR	0x40000000UL
+#define APB2_BASEADDR	0x40013400UL
+#define AHB1_BASEADDR	0x40020000UL
+#define AHB2_BASEADDR	0x50000000UL
+
+/* BASE ADDRESS PERIPHERALS ON AHB1 */
+#define GPIOA_BASEADDR			(AHB1_BASEADDR + 0x00UL)
+#define GPIOB_BASEADDR			(AHB1_BASEADDR + 0x400UL)
+#define GPIOC_BASEADDR			(AHB1_BASEADDR + 0x800UL)
+
+/* BASE ADDRESS OF PERIPHERALS APB1 */
+
+
+/* BASE ADDRESS OF PERIPHERALS APB2 */
+
+
+/* REGISTERS OF GPIOA PERIPHERAL */
+typedef struct
+{
+	volatile uint32_t MODER;
+	volatile uint32_t OTYPER;
+	volatile uint32_t OSPEEDR;
+	volatile uint32_t PUPDR;
+	volatile uint32_t IDR;
+	volatile uint32_t ODR;
+	volatile uint32_t BSRR;
+	volatile uint32_t LCKR;
+	volatile uint32_t AFR[2];   					//AFRL and AFRH
+}GPIO_REGDEF_t;
+
+/* GPIOx MACROS */
+#define GPIOA = ((GPIO_REGDEF_t*)GPIOA_BASEADDR);
+/////////////////
+
+//pGPIOA -> MODER = 21;								//How to access the registers of GPIOA
+
+#endif /* INC_STM32F407XX_H_ */

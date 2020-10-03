@@ -1,0 +1,10 @@
+02:56:17 **** Incremental Build of configuration Debug for project 001HALToggleLed ****
+make -j4 all 
+arm-none-eabi-size   001HALToggleLed.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5868	     20	   1572	   7460	   1d24	001HALToggleLed.elf
+Finished building: default.size.stdout
+ 
+
+02:56:18 Build Finished. 0 errors, 0 warnings. (took 315ms)
+

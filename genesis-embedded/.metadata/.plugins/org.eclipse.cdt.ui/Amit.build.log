@@ -1,0 +1,21 @@
+13:08:32 **** Build of configuration Debug for project Amit ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
+arm-none-eabi-gcc "../Src/001_LedToggle.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -I/home/milind/Documents/embedded/stm-disc1/projects/Amit/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/001_LedToggle.d" -MT"Src/001_LedToggle.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/001_LedToggle.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -I/home/milind/Documents/embedded/stm-disc1/projects/Amit/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -I/home/milind/Documents/embedded/stm-disc1/projects/Amit/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "Amit.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/milind/Documents/embedded/stm-disc1/projects/Amit/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Amit.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Src/001_LedToggle.o: In function `main':
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:29: undefined reference to `GPIO_Peri_CLKControl'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:30: undefined reference to `GPIO_init'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:38: undefined reference to `GPIO_Peri_CLKControl'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:39: undefined reference to `GPIO_init'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:43: undefined reference to `GPIO_Read_fromInputPin'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:45: undefined reference to `GPIO_Write_toOutputPin'
+/home/milind/Documents/embedded/stm-disc1/projects/Amit/Debug/../Src/001_LedToggle.c:50: undefined reference to `GPIO_Write_toOutputPin'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:43: Amit.elf] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+13:08:33 Build Failed. 8 errors, 0 warnings. (took 722ms)
+

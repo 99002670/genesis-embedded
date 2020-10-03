@@ -1,0 +1,97 @@
+/*
+ * STM32F407xx_gpio_driver.h
+ *
+ *  Created on: 30-Sep-2020
+ *      Author: Amit
+ */
+
+#ifndef INC_STM32F407XX_GPIO_DRIVER_H_
+#define INC_STM32F407XX_GPIO_DRIVER_H_
+
+#include "STM32F407xx.h"
+
+/****** STRUCTURE FOR GPIO FUNCTIONS *********/
+typedef struct
+{
+	uint8_t GPIO_PinNumber;
+	uint8_t GPIO_PinMode;
+	uint8_t GPIO_PinSpeed;
+	uint8_t GPIO_PinOPType;
+	uint8_t GPIO_PinPupdControl;
+	uint8_t GPIO_PinAltFuncMode;
+}GPIO_PinConfig_t;
+/*********************************************/
+
+/****** STRUCTURE FOR GPIO ADDRESSING *********/
+typedef struct
+{
+	GPIO_REGDEF_t *pGPIOx;
+	GPIO_PinConfig_t GPIO_PinConfig;
+}GPIO_Handle_t;
+/***********************************************/
+
+/**********GPIO_PinNumber of GPIOx*********/
+#define GPIO_Pin_No_0			0
+#define GPIO_Pin_No_1			1
+#define GPIO_Pin_No_2			2
+#define GPIO_Pin_No_3			3
+#define GPIO_Pin_No_4			4
+#define GPIO_Pin_No_5			5
+#define GPIO_Pin_No_6			6
+#define GPIO_Pin_No_7			7
+#define GPIO_Pin_No_8			8
+#define GPIO_Pin_No_9			9
+#define GPIO_Pin_No_10			10
+#define GPIO_Pin_No_11			11
+#define GPIO_Pin_No_12			12
+#define GPIO_Pin_No_13			13
+#define GPIO_Pin_No_14			14
+#define GPIO_Pin_No_15			15
+/******************************************/
+
+/**************GPIOx PinMode***************/
+#define GPIO_Mode_Input				0
+#define GPIO_Mode_Out				1
+#define GPIO_Mode_Afn				2
+#define GPIO_Mode_Analog			3
+/******************************************/
+
+/**************GPIOx OPType***************/
+#define GPIO_OPType_PuPd			0
+#define GPIO_OPType_OpDr			1
+/*****************************************/
+
+/**************GPIOx OSpeed***************/
+#define GPIO_Speed_Low				0
+#define GPIO_Speed_Medium			1
+#define GPIO_Speed_Fast				2
+#define GPIO_Speed_High				3
+/*****************************************/
+
+/**************GPIOx PuPd***************/
+#define GPIO_Pin_NoPupd				0
+#define GPIO_Pin_Pu					1
+#define GPIO_Pin_Pd					2
+#define GPIO_Pin_Reserved			3
+/***************************************/
+
+/********* GPIOx Alternate Func **********/
+#define GPIO_AltFunc_AF0			0
+#define GPIO_AltFunc_AF1			1
+#define GPIO_AltFunc_AF2			2
+#define GPIO_AltFunc_AF3			3
+#define GPIO_AltFunc_AF4			4
+#define GPIO_AltFunc_AF5			5
+#define GPIO_AltFunc_AF6			6
+#define GPIO_AltFunc_AF7			7
+#define GPIO_AltFunc_AF8			8
+#define GPIO_AltFunc_AF9			9
+#define GPIO_AltFunc_AF10			10
+#define GPIO_AltFunc_AF11			11
+#define GPIO_AltFunc_AF12			12
+#define GPIO_AltFunc_AF13			13
+#define GPIO_AltFunc_AF14			14
+#define GPIO_AltFunc_AF15			15
+/*****************************************/
+
+#endif /* INC_STM32F407XX_GPIO_DRIVER_H_ */

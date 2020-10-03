@@ -1,0 +1,10 @@
+03:14:58 **** Incremental Build of configuration Debug for project 01HALLedToggle ****
+make -j4 all 
+arm-none-eabi-size   01HALLedToggle.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6016	     20	   1572	   7608	   1db8	01HALLedToggle.elf
+Finished building: default.size.stdout
+ 
+
+03:14:58 Build Finished. 0 errors, 0 warnings. (took 419ms)
+

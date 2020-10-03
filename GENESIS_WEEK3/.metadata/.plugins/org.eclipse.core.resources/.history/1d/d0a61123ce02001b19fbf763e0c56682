@@ -1,0 +1,83 @@
+/*
+ * STM32F407xx.h
+ *
+ *  Created on: Sep 29, 2020
+ *      Author: Amit
+ */
+
+#include <stdint.h>
+
+#ifndef INC_STM32F407XX_H_
+#define INC_STM32F407XX_H_
+
+/*********** BASE ADDRESS OF MEMORY ************/
+#define FLASH_BASEADDR	0x08000000UL 				//base address of the flash memory
+#define SRAM1_BASEADDR	0x20000000UL				//base address of sram1
+#define SRAM2_BASEADDR  0x2001C000UL				//base address of sram2
+#define SRAM_BASEADDR	SRAM1_BASEADDR				//SRAM or primary ram is sram1 itself
+#define ROM_BASEADDR	0x1FFF0000UL				//base address of rom
+/***********************************************/
+
+/********* BASE ADDRESS OF THE BUSES ***********/
+#define APB1_BASEADDR	0x40000000UL
+#define APB2_BASEADDR	0x40013400UL
+#define AHB1_BASEADDR	0x40020000UL
+#define AHB2_BASEADDR	0x50000000UL
+/***********************************************/
+
+/* BASE ADDRESS PERIPHERALS ON AHB1 */
+#define GPIOA_BASEADDR			(AHB1_BASEADDR + 0x0000UL)
+#define GPIOB_BASEADDR			(AHB1_BASEADDR + 0x0400UL)
+#define GPIOC_BASEADDR			(AHB1_BASEADDR + 0x0800UL)
+#define GPIOD_BASEADDR			(AHB1_BASEADDR + 0x0C00UL)
+#define GPIOE_BASEADDR			(AHB1_BASEADDR + 0x1000UL)
+/***********************************************/
+
+/****** BASE ADDRESS OF PERIPHERALS APB1 *******/
+#define UART8_BASEADDR			(APB1_BASEADDR + 0x7C00UL)
+#define UART7_BASEADDR			(APB1_BASEADDR + 0x7800UL)
+#define DAC_BASEADDR			(APB1_BASEADDR + 0x7400UL)
+#define PWR_BASEADDR			(APB1_BASEADDR + 0x7000UL)
+#define CAN1_BASEADDR			(APB1_BASEADDR + 0x6400UL)
+#define CAN2_BASEADDR			(APB1_BASEADDR + 0x4000UL)
+#define I2C3_BASEADDR			(APB1_BASEADDR + 0x5C00UL)
+#define I2C2_BASEADDR			(APB1_BASEADDR + 0x5800UL)
+#define I2C1_BASEADDR			(APB1_BASEADDR + 0x7C00UL)
+#define UART5_BASEADDR			(APB1_BASEADDR + 0x5000UL)
+#define UART4_BASEADDR			(APB1_BASEADDR + 0x4C00UL)
+#define UART3_BASEADDR			(APB1_BASEADDR + 0x4800UL)
+#define UART2_BASEADDR			(APB1_BASEADDR + 0x4400UL)
+#define SPI3_BASEADDR			(APB1_BASEADDR + 0x3C00UL)
+#define SPI2_BASEADDR			(APB1_BASEADDR + 0x3800UsL)
+/***********************************************/
+
+/****** BASE ADDRESS OF PERIPHERALS APB2 *******/
+
+/***********************************************/
+
+/******** REGISTERS OF GPIOx PERIPHERAL ********/
+typedef struct
+{
+	volatile uint32_t MODER;
+	volatile uint32_t OTYPER;
+	volatile uint32_t OSPEEDR;
+	volatile uint32_t PUPDR;
+	volatile uint32_t IDR;
+	volatile uint32_t ODR;
+	volatile uint32_t BSRR;
+	volatile uint32_t LCKR;
+	volatile uint32_t AFR[2];   					//AFRL and AFRH
+}GPIO_REGDEF_t;
+/***********************************************/
+
+/************** GPIOx MACROS *******************/
+#define GPIOA = ((GPIO_REGDEF_t*)GPIOA_BASEADDR);
+#define GPIOB = ((GPIO_REGDEF_t*)GPIOB_BASEADDR);
+#define GPIOC = ((GPIO_REGDEF_t*)GPIOC_BASEADDR);
+#define GPIOD = ((GPIO_REGDEF_t*)GPIOD_BASEADDR);
+#define GPIOE = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+/***********************************************/
+
+//pGPIOA -> MODER = 21;								//How to access the registers of GPIOA
+
+#endif /* INC_STM32F407XX_H_ */

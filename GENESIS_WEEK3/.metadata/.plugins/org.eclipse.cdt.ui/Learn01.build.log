@@ -1,0 +1,10 @@
+15:13:55 **** Incremental Build of configuration Debug for project Learn01 ****
+make -j6 all 
+arm-none-eabi-size   Learn01.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4608	    116	   1756	   6480	   1950	Learn01.elf
+Finished building: default.size.stdout
+ 
+
+15:13:55 Build Finished. 0 errors, 0 warnings. (took 279ms)
+

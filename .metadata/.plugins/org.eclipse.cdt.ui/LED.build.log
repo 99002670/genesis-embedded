@@ -1,0 +1,20 @@
+21:27:44 **** Incremental Build of configuration Debug for project LED ****
+make -j4 all 
+arm-none-eabi-gcc "../Driver/Src/STM32F407xx_gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -I"D:/embedded/LED/Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/STM32F407xx_gpio_driver.d" -MT"Driver/Src/STM32F407xx_gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Driver/Src/STM32F407xx_gpio_driver.o"
+arm-none-eabi-gcc -o "LED.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\embedded\LED\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LED.elf
+ 
+arm-none-eabi-objdump -h -S  LED.elf  > "LED.list"
+arm-none-eabi-objcopy  -O binary  LED.elf  "LED.bin"
+arm-none-eabi-size   LED.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1676	      8	   1568	   3252	    cb4	LED.elf
+Finished building: default.size.stdout
+ 
+Finished building: LED.list
+Finished building: LED.bin
+ 
+ 
+
+21:27:46 Build Finished. 0 errors, 0 warnings. (took 2s.137ms)
+

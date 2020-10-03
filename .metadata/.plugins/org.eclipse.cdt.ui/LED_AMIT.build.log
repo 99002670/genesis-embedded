@@ -1,0 +1,10 @@
+11:07:11 **** Incremental Build of configuration Debug for project LED_AMIT ****
+make -j4 all 
+arm-none-eabi-size   LED_AMIT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1492	      8	   1568	   3068	    bfc	LED_AMIT.elf
+Finished building: default.size.stdout
+ 
+
+11:07:12 Build Finished. 0 errors, 0 warnings. (took 188ms)
+

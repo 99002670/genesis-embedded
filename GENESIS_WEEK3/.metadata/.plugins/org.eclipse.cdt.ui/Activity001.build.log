@@ -1,0 +1,30 @@
+16:25:43 **** Incremental Build of configuration Debug for project Activity001 ****
+make -j6 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:22:1: warning: "/*" within comment [-Wcomment]
+ /*
+  
+../Src/main.c: In function 'main':
+../Src/main.c:38:29: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *pSpi1Cr1RegSSI = (uint32_t)SPI1_CR1_REG_ADDR;
+                             ^
+../Src/main.c:39:31: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+  uint32_t *pRccApb2enrReg  =  (uint32_t)RCC_APB2ENR_ADDR;
+                               ^
+arm-none-eabi-gcc -o "Activity001.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\GENESIS_WEEK3\Activity001\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Activity001.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Activity001.elf
+ 
+arm-none-eabi-objdump -h -S  Activity001.elf  > "Activity001.list"
+arm-none-eabi-objcopy  -O binary  Activity001.elf  "Activity001.bin"
+arm-none-eabi-size   Activity001.elf 
+   text	   data	    bss	    dec	    hex	filename
+    716	      8	   1568	   2292	    8f4	Activity001.elf
+Finished building: default.size.stdout
+ 
+Finished building: Activity001.bin
+ 
+Finished building: Activity001.list
+ 
+
+16:25:44 Build Finished. 0 errors, 3 warnings. (took 891ms)
+

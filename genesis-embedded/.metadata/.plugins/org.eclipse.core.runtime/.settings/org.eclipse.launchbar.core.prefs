@@ -1,0 +1,13 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:demo3,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Learn01 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Learn02 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Learn03,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Learn03Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Activity001 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:01HALLedToggle Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Activity1/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Activity1/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:demo2/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:demo2/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:demo3/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:demo3/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:demo\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:demo\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

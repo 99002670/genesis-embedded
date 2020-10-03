@@ -1,0 +1,50 @@
+/*
+ * STM32F407xx_gpio_driver.c
+ *
+ *  Created on: 30-Sep-2020
+ *      Author: Training
+ */
+
+#include "STM32F407xx_gpio_driver.h"
+
+/**************************** API DEFINITIONS *******************************/
+void GPIO_Peri_CLKControl(GPIO_REGDEF_t *pGPIOx, uint8_t EorDi)
+{
+	if(pGPIOx == GPIOA)
+	{
+		RCC GPIOA_CLK_EN();
+	}
+	else if (pGPIOx == GPIOB)
+	{
+		RCC GPIOB_CLK_EN();
+	}
+}
+void GPIO_init(GPIO_REGDEF_t *GPIOHandle)
+{
+
+}
+void GPIO_Deinit(GPIO_REGDEF_t *pGPIOx)
+{
+
+}
+uint8_t GPIO_Read_fromInputPin(GPIO_REGDEF_t *pGPIOx, uint8_t PinNo)
+{
+
+}
+uint8_t GPIO_Read_fromInputPort(GPIO_REGDEF_t *pGPIOx)
+{
+
+}
+void GPIO_Write_toOutputPin(GPIO_REGDEF_t * pGPIOx, uint8_t PinNO, uint8_t value)
+{
+
+}
+void GPIO_Write_toOutputPort(GPIO_REGDEF_t * pGPIOx, uint16_t value)
+{
+
+}
+void GPIO_Toggle_OutputPin(GPIO_REGDEF_t * pGPIOx, uint8_t PinNo)
+{
+
+}
+/****************************************************************************/

@@ -1,0 +1,205 @@
+/*
+ * STM32F407xx.h
+ *
+ *  Created on: Sep 29, 2020
+ *      Author: Amit
+ */
+
+#include <stdint.h>
+
+#ifndef INC_STM32F407XX_H_
+#define INC_STM32F407XX_H_
+
+/*********** BASE ADDRESS OF MEMORY ************/
+#define FLASH_BASEADDR	0x08000000UL 				//base address of the flash memory
+#define SRAM1_BASEADDR	0x20000000UL				//base address of sram1
+#define SRAM2_BASEADDR  0x2001C000UL				//base address of sram2
+#define SRAM_BASEADDR	SRAM1_BASEADDR				//SRAM or primary ram is sram1 itself
+#define ROM_BASEADDR	0x1FFF0000UL				//base address of rom
+/***********************************************/
+
+/********* BASE ADDRESS OF THE BUSES ***********/
+#define APB1_BASEADDR	0x40000000UL
+#define APB2_BASEADDR	0x40013400UL
+#define AHB1_BASEADDR	0x40020000UL
+#define AHB2_BASEADDR	0x50000000UL
+/***********************************************/
+
+/* BASE ADDRESS PERIPHERALS ON AHB1 */
+#define GPIOA_BASEADDR			(AHB1_BASEADDR + 0x0000UL)
+#define GPIOB_BASEADDR			(AHB1_BASEADDR + 0x0400UL)
+#define GPIOC_BASEADDR			(AHB1_BASEADDR + 0x0800UL)
+#define GPIOD_BASEADDR			(AHB1_BASEADDR + 0x0C00UL)
+#define GPIOE_BASEADDR			(AHB1_BASEADDR + 0x1000UL)
+#define GPIOF_BASEADDR			(AHB1_BASEADDR + 0x1400UL)
+#define GPIOG_BASEADDR			(AHB1_BASEADDR + 0x1800UL)
+#define GPIOH_BASEADDR			(AHB1_BASEADDR + 0x1C00UL)
+#define GPIOI_BASEADDR			(AHB1_BASEADDR + 0x2000UL)
+#define RCC_BASEADDR			(AHB1_BASEADDR + 0x3800UL)
+/***********************************************/
+
+/****** BASE ADDRESS OF PERIPHERALS APB1 *******/
+#define UART8_BASEADDR			(APB1_BASEADDR + 0x7C00UL)
+#define UART7_BASEADDR			(APB1_BASEADDR + 0x7800UL)
+#define I2C3_BASEADDR			(APB1_BASEADDR + 0x5C00UL)
+#define I2C2_BASEADDR			(APB1_BASEADDR + 0x5800UL)
+#define I2C1_BASEADDR			(APB1_BASEADDR + 0x7C00UL)
+#define UART5_BASEADDR			(APB1_BASEADDR + 0x5000UL)
+#define UART4_BASEADDR			(APB1_BASEADDR + 0x4C00UL)
+#define UART3_BASEADDR			(APB1_BASEADDR + 0x4800UL)
+#define UART2_BASEADDR			(APB1_BASEADDR + 0x4400UL)
+#define SPI3_BASEADDR			(APB1_BASEADDR + 0x3C00UL)
+#define SPI2_BASEADDR			(APB1_BASEADDR + 0x3800UL)
+/***********************************************/
+
+/****** BASE ADDRESS OF PERIPHERALS APB2 *******/
+#define SPI1_BASEADDR		(APB2_BASEADDR + 0x3000UL)
+#define USART1_BASEADDR		(APB2_BASEADDR + 0x1000UL)
+#define USART6_BASEADDR		(APB2_BASEADDR + 0x1400UL
+#define EXTI_BASEADDR		(APB2_BASEADDR + 0x3C00UL)
+#define SYSCFG_BASEADDR		(APB2_BASEADDR + 0x3800UL)
+/***********************************************/
+
+/******** REGISTERS OF GPIOx PERIPHERAL ********/
+typedef struct
+{
+	volatile uint32_t MODER;
+	volatile uint32_t OTYPER;
+	volatile uint32_t OSPEEDR;
+	volatile uint32_t PUPDR;
+	volatile uint32_t IDR;
+	volatile uint32_t ODR;
+	volatile uint32_t BSRR;
+	volatile uint32_t LCKR;
+	volatile uint32_t AFR[2];   					//AFRL and AFRH
+}GPIO_REGDEF_t;
+/***********************************************/
+
+/******** REGISTERS OF RCC PERIPHERAL ********/
+typedef struct
+{
+	volatile uint32_t CR;
+	volatile uint32_t PULLCFGR;
+	volatile uint32_t CFGR;
+	volatile uint32_t CIR;
+	volatile uint32_t AHB1RSTR;
+	volatile uint32_t AHB2RSTR;
+	volatile uint32_t AHB3RSTR;
+	volatile uint32_t RESERVED1;
+	volatile uint32_t APB1RSTR;
+	volatile uint32_t APB2RSTR;
+	volatile uint32_t RESERVED2[2];
+	volatile uint32_t AHB1ENR;
+	volatile uint32_t AHB2ENR;
+	volatile uint32_t AHB3ENR;
+	volatile uint32_t RESERVED3;
+	volatile uint32_t APB1ENR;
+	volatile uint32_t APB2ENR;
+	volatile uint32_t RESERVED4[2];
+	volatile uint32_t AHB1LPENR;
+	volatile uint32_t AHB2LPENR;
+	volatile uint32_t AHB3LPENR;
+	volatile uint32_t RESERVED5;
+	volatile uint32_t APB1LPENR;
+	volatile uint32_t APB2LPENR;
+	volatile uint32_t RESERVED6[2];
+	volatile uint32_t BDCR;
+	volatile uint32_t CSR;
+	volatile uint32_t RESERVED7[2];
+	volatile uint32_t SSCGR;
+	volatile uint32_t PLLI2CFGR;
+	volatile uint32_t CSR2;
+}RCC_REGDEF_t;
+/***********************************************/
+
+/************* REGISTERS OF I2C ****************/
+typedef struct
+{
+	volatile uint32_t I2C_CR1;
+	volatile uint32_t I2C_CR2;
+	volatile uint32_t I2C_OAR1;
+	volatile uint32_t I2C_OAR2;
+	volatile uint32_t I2C_DR;
+	volatile uint32_t I2C_SR1;
+	volatile uint32_t I2C_SR2;
+	volatile uint32_t I2C_CCR;
+	volatile uint32_t I2C_TRISE;
+	volatile uint32_t I2C_FLTR;
+}I2C_REGDEF_t;
+/***********************************************/
+
+/************* REGISTERS OF SPI ****************/
+typedef struct
+{
+	volatile uint32_t SPI_CR1;
+	volatile uint32_t SPI_CR2;
+	volatile uint32_t SPI_SR;
+	volatile uint32_t SPI_DR;
+	volatile uint32_t SPI_CRCPR;
+	volatile uint32_t SPI_RXCRCR;
+	volatile uint32_t SPI_TXCRCR;
+	volatile uint32_t SPI_I2SCFGR;
+	volatile uint32_t SPI_I2SPR;
+}SPI_REGDEF_t;
+/***********************************************/
+
+/************* REGISTERS OF USART **************/
+typedef struct
+{
+	volatile uint32_t USART_SR;
+	volatile uint32_t USART_DR;
+	volatile uint32_t USART_BRR;
+	volatile uint32_t USART_CR1;
+	volatile uint32_t USART_CR2;
+	volatile uint32_t USART_CR3;
+	volatile uint32_t USART_GTPR;
+}USART_REGDEF_t;
+/***********************************************/
+
+/************** GPIOx MACROS *******************/
+#define GPIOA = ((GPIO_REGDEF_t*)GPIOA_BASEADDR);
+#define GPIOB = ((GPIO_REGDEF_t*)GPIOB_BASEADDR);
+#define GPIOC = ((GPIO_REGDEF_t*)GPIOC_BASEADDR);
+#define GPIOD = ((GPIO_REGDEF_t*)GPIOD_BASEADDR);
+#define GPIOE = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+#define GPIOF = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+#define GPIOG = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+#define GPIOH = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+#define GPIOI = ((GPIO_REGDEF_t*)GPIOE_BASEADDR);
+/***********************************************/
+
+/***************** RCC MACRO *******************/
+#define RCC = ((RCC_REGDEF_t*)RCC_BASEADDR)
+/***********************************************/
+
+/*********** CLOCK ENABLE MACROS ***************/
+#define RCC_GPIOA_CLK_EN()		(RCC->AHB1ENR |= (1<<0))
+#define RCC_GPIOB_CLK_EN()		(RCC->AHB1ENR |= (1<<1))
+#define RCC_GPIOC_CLK_EN()		(RCC->AHB1ENR |= (1<<2))
+#define RCC_GPIOD_CLK_EN()		(RCC->AHB1ENR |= (1<<3))
+#define RCC_GPIOE_CLK_EN()		(RCC->AHB1ENR |= (1<<4))
+#define RCC_GPIOF_CLK_EN()		(RCC->AHB1ENR |= (1<<5))
+#define RCC_GPIOG_CLK_EN()		(RCC->AHB1ENR |= (1<<6))
+#define RCC_GPIOH_CLK_EN()		(RCC->AHB1ENR |= (1<<7))
+#define RCC_GPIOI_CLK_EN()		(RCC->AHB1ENR |= (1<<8))
+/***********************************************/
+
+/*********** CLOCK DISABLE MACROS ***************/
+#define RCC_GPIOA_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<0))
+#define RCC_GPIOB_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<1))
+#define RCC_GPIOC_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<2))
+#define RCC_GPIOD_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<3))
+#define RCC_GPIOE_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<4))
+#define RCC_GPIOF_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<5))
+#define RCC_GPIOG_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<6))
+#define RCC_GPIOH_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<7))
+#define RCC_GPIOI_CLK_DIS()		(RCC->AHB1ENR |= ~(1<<8))
+/***********************************************/
+
+/*********** SOME IMPORTANT MACROS *************/
+#define ENABLE				1
+#define DISABLE				0
+#define SET					ENABLE
+#define RESET				DISABLE
+/***********************************************/
+#endif /* INC_STM32F407XX_H_ */

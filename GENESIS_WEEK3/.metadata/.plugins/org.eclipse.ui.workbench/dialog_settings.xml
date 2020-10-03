@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="dialogHeight" value="954"/>
+		<item key="dialogWidth" value="1162"/>
+		<list key="orderedElements">
+			<item value="com.st.stm32cube.common.mx.manageembeddedsoftwarepackages"/>
+			<item value="org.eclipse.equinox.internal.p2.ui.sdk.ProvisioningPreferencePage"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.preferences"/>
+		</list>
+		<list key="textEntries">
+			<item value="2"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="package"/>
+			<item value="p"/>
+			<item value="install"/>
+		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="94"/>
+		<item key="DIALOG_Y_ORIGIN" value="153"/>
+	</section>
+</section>

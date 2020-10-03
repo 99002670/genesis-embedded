@@ -1,0 +1,312 @@
+/*
+ * STM32F407xx_gpio_driver.c
+ *
+ *  Created on: 30-Sep-2020
+ *      Author: Amit
+ */
+
+#include "STM32F407xx_gpio_driver.h"
+
+/**************************** API DEFINITIONS *******************************/
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_Peri_CLKControl(GPIO_REGDEF_t *pGPIOx, uint8_t EorDi)
+{
+	if(EorDi == ENABLE)
+		{
+			if(pGPIOx == GPIOA)
+				{
+					RCC_GPIOA_CLK_EN();
+				}
+			else if (pGPIOx == GPIOB)
+				{
+					RCC_GPIOB_CLK_EN();
+				}
+			else if (pGPIOx == GPIOC)
+				{
+					RCC_GPIOC_CLK_EN();
+				}
+			else if (pGPIOx == GPIOD)
+				{
+					RCC_GPIOD_CLK_EN();
+				}
+			else if (pGPIOx == GPIOE)
+				{
+					RCC_GPIOE_CLK_EN();
+				}
+			else if (pGPIOx == GPIOF)
+				{
+					RCC_GPIOF_CLK_EN();
+				}
+			else if (pGPIOx == GPIOG)
+				{
+					RCC_GPIOG_CLK_EN();
+				}
+			else if (pGPIOx == GPIOH)
+				{
+					RCC_GPIOH_CLK_EN();
+				}
+			else if (pGPIOx == GPIOI)
+				{
+					RCC_GPIOI_CLK_EN();
+				}
+		}
+
+	else
+	{
+		//Do Nothing
+	}
+
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_init(GPIO_Handle_t *GPIOHandle)
+{
+	//Init MODE
+	uint32_t temp = 0;
+	temp = (GPIOHandle-> GPIO_PinConfig.GPIO_PinMode<<(2*GPIOHandle -> GPIO_PinConfig.GPIO_PinNumber));
+	(GPIOHandle -> pGPIOx -> MODER)	&= ~(0x3<<2*GPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	(GPIOHandle -> pGPIOx -> MODER) |= temp;
+
+	//Configure Speed
+	temp = 0;
+	temp = (GPIOHandle-> GPIO_PinConfig.GPIO_PinSpeed<<(2*GPIOHandle -> GPIO_PinConfig.GPIO_PinNumber));
+	(GPIOHandle -> pGPIOx ->OSPEEDR) &= ~(0x3<<2*GPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	(GPIOHandle -> pGPIOx ->OSPEEDR) |= temp;
+	//Configue PullUp or PullDown
+	temp = 0;
+	temp = (GPIOHandle-> GPIO_PinConfig.GPIO_PinPupdControl<<(2*GPIOHandle -> GPIO_PinConfig.GPIO_PinNumber));
+	(GPIOHandle -> pGPIOx ->PUPDR) &= ~(0x3<<2*GPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	(GPIOHandle -> pGPIOx ->PUPDR) |= temp;
+	//Configure Output type
+	temp = 0;
+	temp = (GPIOHandle -> GPIO_PinConfig.GPIO_PinOPType<<(GPIOHandle ->GPIO_PinConfig.GPIO_PinNumber));
+	(GPIOHandle -> pGPIOx -> ODR) &= ~(0x1<<2*GPIOHandle->GPIO_PinConfig.GPIO_PinNumber);
+	(GPIOHandle -> pGPIOx -> ODR) |= temp;
+	//Configure Alternative Function
+	if (GPIOHandle -> GPIO_PinConfig.GPIO_PinMode == GPIO_Mode_Afn)
+	{
+		uint32_t temp1 = (GPIOHandle -> GPIO_PinConfig.GPIO_PinNumber/8);
+		uint32_t temp2 = (GPIOHandle -> GPIO_PinConfig.GPIO_PinNumber%8);
+		GPIOHandle -> pGPIOx -> AFR[temp1] &= ~(0xF << 4*temp2);
+		GPIOHandle -> pGPIOx->AFR[temp1] = (GPIOHandle -> GPIO_PinConfig.GPIO_PinAltFuncMode<<(4*temp2));
+	}
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_Deinit(GPIO_REGDEF_t *pGPIOx)
+{
+	if (pGPIOx == GPIOA)
+	{
+		GPIOA_REG_RESET();
+	}
+	else if (pGPIOx == GPIOB)
+	{
+		GPIOB_REG_RESET();
+	}
+	else if (pGPIOx == GPIOC)
+	{
+		GPIOC_REG_RESET();
+	}
+	else if (pGPIOx == GPIOD)
+	{
+		GPIOD_REG_RESET();
+	}
+	else if (pGPIOx == GPIOE)
+	{
+		GPIOE_REG_RESET();
+	}
+	else if (pGPIOx == GPIOF)
+	{
+		GPIOF_REG_RESET();
+	}
+	else if (pGPIOx == GPIOG)
+	{
+		GPIOG_REG_RESET();
+	}
+	else if (pGPIOx == GPIOH)
+	{
+		GPIOH_REG_RESET();
+	}
+	else if (pGPIOx == GPIOI)
+	{
+		GPIOI_REG_RESET();
+	}
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+uint8_t GPIO_Read_fromInputPin(GPIO_REGDEF_t *pGPIOx, uint8_t PinNo)
+{
+	uint8_t val = 0;
+	val = (uint8_t)(pGPIOx -> IDR >> PinNo) & (0x00000001);
+	return val;
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+uint8_t GPIO_Read_fromInputPort(GPIO_REGDEF_t *pGPIOx)
+{
+	uint32_t val =0;
+	val = (uint32_t)(pGPIOx -> IDR);
+	return val;
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_Write_toOutputPin(GPIO_REGDEF_t * pGPIOx, uint8_t PinNo, uint8_t value)
+{
+	if (value == GPIO_Set)
+	{
+		pGPIOx -> ODR |= (1<<PinNo);
+	}
+	else
+	{
+		pGPIOx -> ODR &= ~(1<<PinNo);
+	}
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_Write_toOutputPort(GPIO_REGDEF_t * pGPIOx, uint16_t value)
+{
+	pGPIOx -> ODR = value;
+}
+
+/*
+ * @Brief description
+ * @Function:
+ *
+ * @Param1:
+ *
+ * @Param2:
+ *
+ * @Param3:
+ *
+ * @Definition:
+ *
+ * @Designed by:
+ *
+ * @Date and time:
+ *
+ *
+ */
+void GPIO_Toggle_OutputPin(GPIO_REGDEF_t * pGPIOx, uint8_t PinNo)
+{
+	pGPIOx -> ODR ^= (1<<PinNo);
+}
+/****************************************************************************/
