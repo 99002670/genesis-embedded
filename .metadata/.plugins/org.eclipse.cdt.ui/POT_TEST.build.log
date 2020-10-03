@@ -1,0 +1,10 @@
+17:28:07 **** Incremental Build of configuration Debug for project POT_TEST ****
+make -j4 all 
+arm-none-eabi-size   POT_TEST.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7832	     20	   1644	   9496	   2518	POT_TEST.elf
+Finished building: default.size.stdout
+ 
+
+17:28:07 Build Finished. 0 errors, 0 warnings. (took 410ms)
+

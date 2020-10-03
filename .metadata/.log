@@ -1177,3 +1177,28 @@ java.net.UnknownHostException: download.eclipse.org
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-10-03 11:36:35.120
 !MESSAGE Indexed '001USART' (21 sources, 26 headers) in 2.07 sec: 2,063 declarations; 11,941 references; 6 unresolved inclusions; 47 syntax errors; 2,112 unresolved names (13%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 16:52:57.886
+!MESSAGE Indexed 'POT_TEST' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 16:53:05.638
+!MESSAGE Indexed 'POT_TEST' (21 sources, 80 headers) in 5.66 sec: 4,054 declarations; 16,908 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0095%)
+
+!ENTRY org.eclipse.jface 2 0 2020-10-03 16:53:26.355
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:515)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1965)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:670)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:646)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1609)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1596)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
