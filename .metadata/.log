@@ -1153,3 +1153,27 @@ java.net.UnknownHostException: download.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:246)
 	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 09:37:13.237
+!MESSAGE Indexed '001_Interrupts' (0 sources, 0 headers) in 0.009 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 09:37:34.374
+!MESSAGE Indexed '001_Interrupts' (20 sources, 20 headers) in 2.22 sec: 1,116 declarations; 5,842 references; 1 unresolved inclusions; 86 syntax errors; 2,966 unresolved names (30%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 10:07:31.832
+!MESSAGE Indexed '001_ADC' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 10:07:39.957
+!MESSAGE Indexed '001_ADC' (21 sources, 80 headers) in 4.13 sec: 4,054 declarations; 16,908 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0095%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 11:22:25.506
+!MESSAGE Indexed '001SPI' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 11:23:37.294
+!MESSAGE Indexed '001SPI' (24 sources, 78 headers) in 57.2 sec: 4,052 declarations; 15,052 references; 6 unresolved inclusions; 48 syntax errors; 1,791 unresolved names (8.6%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 11:36:30.081
+!MESSAGE Indexed '001USART' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-10-03 11:36:35.120
+!MESSAGE Indexed '001USART' (21 sources, 26 headers) in 2.07 sec: 2,063 declarations; 11,941 references; 6 unresolved inclusions; 47 syntax errors; 2,112 unresolved names (13%)
